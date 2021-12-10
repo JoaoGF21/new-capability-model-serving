@@ -7,16 +7,30 @@
 
 # COMMAND ----------
 
+# MAGIC %md
+# MAGIC # End to End with Model Serve
+# MAGIC 
+# MAGIC In this notebook, we're going to:
+# MAGIC - Run our other notebook wherein we train a model and log to MLflow
+# MAGIC - Programmatically promote our model from Staging to Production
+# MAGIC - Load our model back in to run inference
+
+# COMMAND ----------
+
 # MAGIC %md We're going to rerun the previous notebook which imported our data, preprocessed, then registered the model.
 
 # COMMAND ----------
 
-dbutils.notebook.run('01 - MLflow Model Life Cycle', timeout_seconds=120)
+# MAGIC %run "./01 - MLflow Model Life Cycle"
 
 # COMMAND ----------
 
 # MAGIC %md 
 # MAGIC Now we are going to find the Run ID of the model programmatically
+
+# COMMAND ----------
+
+X_train
 
 # COMMAND ----------
 
@@ -65,4 +79,5 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/staging")
 model.predict(X_test)
 
 # COMMAND ----------
+
 
