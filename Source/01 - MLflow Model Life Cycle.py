@@ -77,3 +77,8 @@ with mlflow.start_run(run_name="ms course") as run:
 
 # COMMAND ----------
 
+X_train.head(1).values
+
+# COMMAND ----------
+
+

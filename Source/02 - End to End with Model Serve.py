@@ -30,10 +30,6 @@
 
 # COMMAND ----------
 
-X_train
-
-# COMMAND ----------
-
 run_id = mlflow.search_runs(filter_string='tags.mlflow.runName = "ms course"').iloc[0].run_id
 
 # COMMAND ----------
@@ -56,7 +52,7 @@ client = MlflowClient()
 client.transition_model_version_stage(
   name=model_name,
   version=model_version.version,
-  stage="Staging",
+  stage="Production",
 )
 
 # COMMAND ----------
@@ -68,7 +64,7 @@ client.transition_model_version_stage(
 
 # COMMAND ----------
 
-model = mlflow.pyfunc.load_model(f"models:/{model_name}/staging")
+model = mlflow.pyfunc.load_model(f"models:/{model_name}/production")
 
 # COMMAND ----------
 
