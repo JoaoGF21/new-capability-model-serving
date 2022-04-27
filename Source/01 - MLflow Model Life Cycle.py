@@ -46,9 +46,10 @@ import mlflow.sklearn
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 
-model_name = "sk-learn-random-forest-reg-model"
+model_name = "sk-learn-random-forest-reg-model-register"
+experiment_id = 3798392589328273
 
-with mlflow.start_run(run_name="ms course") as run:
+with mlflow.start_run(experiment_id=experiment_id) as run:
     params = {"n_estimators": 5, "random_state": 42}
     rand_forst_reg = RandomForestRegressor(**params)
 
