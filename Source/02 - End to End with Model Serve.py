@@ -30,7 +30,8 @@
 
 # COMMAND ----------
 
-run_id = mlflow.search_runs(filter_string='tags.mlflow.runName = "ms course"').iloc[0].run_id
+# run_id = mlflow.search_runs(filter_string='tags.mlflow.runName = "course"').iloc[0].run_id
+run_id = mlflow.search_runs(experiment_ids=[3798392589328273]).iloc[0].run_id
 
 # COMMAND ----------
 
